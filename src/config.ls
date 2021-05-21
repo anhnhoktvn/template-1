@@ -1,8 +1,15 @@
 ``
-import Vue from 'vue'
 import 'font-awesome/css/font-awesome.css'
-import InfiniteLoading from 'vue-infinite-loading'
+import { createApp } from 'vue'
+import App from './App.vue'
+import './registerServiceWorker'
+import './assets/tailwind.css'
+
 ``
+window.APP = app = createApp(App)
+
+# import InfiniteLoading from 'vue-infinite-loading'
+# app.use(InfiniteLoading)
 
 window.F = {}
 window.S = {}
@@ -10,8 +17,6 @@ window.C = {}
 window.M = {}
 window.I = {}
 
-Vue.use(InfiniteLoading)
-Vue.config.productionTip = false
 
 # functions
 do ->
@@ -28,7 +33,7 @@ c = (r, i) ->
     name = i.split '/'
             .pop!
             .replace /\.\w+$/, ''
-    Vue.component name, config.default || config
+    app.component name, config.default || config
 do ->
     r = require.context './template/components', true, /\.(vue|ls)$/
     for i in r.keys!
@@ -46,12 +51,8 @@ do ->
     for i in r.keys!
         c r, i
 
-Vue.prototype.F = F
-Vue.prototype.S = S
-Vue.prototype.C = C
+app.config.globalProperties.F = F
+app.config.globalProperties.S = S
+app.config.globalProperties.C = C
 
-new Vue({
-    mixins: [M],
-    render: (h)-> h(App)
-}).$mount('#app')
-
+app.mount('#app')

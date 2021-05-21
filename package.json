@@ -9,11 +9,19 @@
   "dependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "autoprefixer": "^9",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "deepmerge": "^4.2.2",
+    "font-awesome": "^4.7.0",
     "postcss": "^7",
     "register-service-worker": "^1.7.1",
+    "simple-peer": "^9.11.0",
+    "sweetalert2": "^11.0.8",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-flatpickr-component": "^9.0.3",
+    "vue-infinite-loading": "^2.4.5",
+    "vue-multiselect": "^3.0.0-alpha.2"
   },
   "devDependencies": {
     "6du-livescript-loader": "^0.0.3",
