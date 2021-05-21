@@ -2,7 +2,7 @@ window.M =
     data: -> S
     created: -> 
         window.S = @
-        C.Vue.prototype.S = @
+        APP.config.globalProperties.S = @
     mounted: ->>
         F.start?!
     computed: {}
