@@ -1,12 +1,11 @@
 ``
 import 'font-awesome/css/font-awesome.css'
-import { createApp } from 'vue'
+import { createApp, h } from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import './assets/tailwind.css'
 
 ``
-window.APP = app = createApp(App)
 
 # import InfiniteLoading from 'vue-infinite-loading'
 # app.use(InfiniteLoading)
@@ -27,6 +26,12 @@ do ->
     r = require.context './app/functions', true, /\.ls$/
     for i in r.keys!
         r i
+App.mixins = [M]
+window.APP = app = createApp({
+    render: -> h App
+})
+
+F.$t = APP.config.globalProperties.$t = (name) -> I[S.lang][name] || name
 # components
 c = (r, i) ->
     config = r i
@@ -54,5 +59,4 @@ do ->
 app.config.globalProperties.F = F
 app.config.globalProperties.S = S
 app.config.globalProperties.C = C
-
 app.mount('#app')

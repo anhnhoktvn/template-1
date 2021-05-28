@@ -1,5 +1,4 @@
 
-F.$t = APP.config.globalProperties.$t = (name) -> I[S.lang][name] || name
 /*
 i18n = [
   {

@@ -4,6 +4,9 @@ BaseApp
 
 <script lang="ls">
 export default _ = 
-  data: ->
-    msg: \zzzz
+  created: -> 
+      window.S = @
+      APP.config.globalProperties.S = @
+  mounted: ->>
+      F.start?!
 </script>
